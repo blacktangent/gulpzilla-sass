@@ -35,7 +35,8 @@ module.exports = function(gulp, opts){
     gulp.task('ruby-sass', function() {
         return rubySass(config.sass.target,
             {
-                sourcemap: true,
+                bundleExec: config.sass.bundleExec || false,
+                sourcemap: config.debug || false,
                 loadPath: [
                     config.sass.srcDir
                 ].concat(config.sass.loadPaths)
